@@ -9,6 +9,7 @@ export const usePokemonDetail = (searchTerm) =>{
     const {id} = useParams();
     const location = useLocation();
     const downloadData = async() =>{
+        console.log("hhhh")
         try {
             const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id?id:searchTerm}`)
         const data = {

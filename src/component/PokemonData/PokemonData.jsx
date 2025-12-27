@@ -1,8 +1,4 @@
-import axios from "axios";
-import { useEffect, useState } from "react"
-import { useParams } from "react-router";
 import { usePokemonDetail } from "../../hooks/usePokemonDetail";
-import { usePokemonList } from "../../hooks/usePokemonList";
 import Pokemon from "../Pokemon/Pokemon";
 
 

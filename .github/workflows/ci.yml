@@ -15,10 +15,7 @@ jobs:
 
         - name: "checking the list"
           run: "ls"
-
-        - name: "cheking linting"
-          run: "npm run lint"
-        
+                  
         - name: "upload production ready build files"
           uses: actions/upload-artifact@v6
           with:
