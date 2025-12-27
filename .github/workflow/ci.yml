@@ -1,0 +1,28 @@
+name: "pokedex"
+
+on:
+  push:
+    branches:
+        - master
+
+jobs:
+    pokedex:
+      on: ubuntu-latest
+      steps:
+        - name: "setup node js"
+          uses: actions/setup-node@v6
+
+        - name: "checking node and npm version"
+          run: |
+              "node --version"
+              "npm --version"
+        
+        - name: "checkout the project"
+          uses: actions/checkout@v2
+
+        - name: "checking the list"
+          run: "ls"
+        
+
+        
+
