@@ -1,12 +1,11 @@
+import PokemonData from "../PokemonData/PokemonData"
 import PokemonList from "../PokemonList/PokemonList"
-import Search from "../Search/Search"
 
-const Pokedex = () => {
+const Pokedex = ({searchTerm}) => {
   return (
     <div className="flex flex-col gap-12 ">
         
-        <Search/>
-        <PokemonList/>
+        {searchTerm?<PokemonData key={searchTerm} searchTerm={searchTerm}/>:<PokemonList/>}
     </div>
   )
 }

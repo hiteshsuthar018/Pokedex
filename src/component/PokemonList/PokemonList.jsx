@@ -1,16 +1,16 @@
 import Pokemon from "../Pokemon/Pokemon";
 import { usePokemonList } from "../../hooks/usePokemonList";
+import { useEffect } from "react";
 
 
 const PokemonList = () => {
     
     // console.log("pokemonListState in PokemonList",usePokemonList);
     const [pokemonListState,setPokemonListState] = usePokemonList(false);
-     console.log("pokemonListState in usePokemonList",pokemonListState);
+    
+
   return (
     <div>
-
-
     <div className="flex flex-wrap justify-around gap-3">
         {pokemonListState.isLoading? "loading...":
         pokemonListState.pokemonList.map((el)=><div key={el.id}>

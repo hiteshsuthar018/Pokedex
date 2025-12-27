@@ -8,7 +8,7 @@ export const usePokemonList = (type) => {
         isLoading: true,
         prevUrl: null,
         nextUrl: null,
-        url:"https://pokeapi.co/api/v2/pokemon"
+        url:`https://pokeapi.co/api/v2/pokemon/`
     });
 
     const downloadList = async () => {
@@ -39,7 +39,7 @@ export const usePokemonList = (type) => {
         })
     }
     if (!res) return;
-    const finalList =  (await axios.all(res)).slice(0, 20);
+    const finalList =  (await axios.all(res))
     setPokemonListState((data) => ({ ...data, isLoading: false ,pokemonList: finalList }));
 }
     useEffect(() => {

@@ -4,12 +4,13 @@ import { useParams } from "react-router";
 import { usePokemonList } from "./usePokemonList";
 import { useLocation } from "react-router";
 
-export const usePokemonDetail = () =>{
+export const usePokemonDetail = (searchTerm) =>{
     const [pokemondata,setPokemondata] = useState({});
     const {id} = useParams();
     const location = useLocation();
     const downloadData = async() =>{
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        try {
+            const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id?id:searchTerm}`)
         const data = {
             name:response.data.name,
             image:response.data.sprites.other.dream_world.front_default,
@@ -20,6 +21,9 @@ export const usePokemonDetail = () =>{
         setPokemondata(data);
         const type = data.types[0]
         setPokemonListState((data)=>({...data,url:`https://pokeapi.co/api/v2/type/${type}/`}));
+        } catch (error) {
+            console.log(error)
+        }
     }
     const [pokemonListState,setPokemonListState] = usePokemonList(true);
     useEffect(()=>{

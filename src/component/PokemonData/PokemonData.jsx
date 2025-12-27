@@ -6,8 +6,8 @@ import { usePokemonList } from "../../hooks/usePokemonList";
 import Pokemon from "../Pokemon/Pokemon";
 
 
-const PokemonData = () => {
-    const [pokemondata,pokemonListState] = usePokemonDetail();
+const PokemonData = ({searchTerm}) => {
+    const [pokemondata,pokemonListState] = usePokemonDetail(searchTerm);
   return (
     <div>
 
@@ -27,7 +27,7 @@ const PokemonData = () => {
     <div className="mt-10 flex justify-center flex-col items-center gap-6">
         <h1 className="text-4xl">More  {pokemondata.types? pokemondata?.types[0]:""}type pokemon</h1>
         <div className="flex flex-wrap justify-around gap-3">
-        {pokemonListState.isLoading? "loading...":pokemonListState.pokemonList.map((el)=>
+        {pokemonListState.isLoading? "loading...":pokemonListState.pokemonList.slice(0,20).map((el)=>
         <div key={el.id}>
            <Pokemon  name={el.name} url={el.url} id={el.id}/>
         </div>
