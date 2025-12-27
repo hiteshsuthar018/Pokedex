@@ -16,9 +16,7 @@ jobs:
               node-version: '21'
 
         - name: "checking node and npm version"
-          run: |
-              "node --version"
-              "npm --version"
+          run: "node --v"
         
         - name: "checkout the project"
           uses: actions/checkout@v2
