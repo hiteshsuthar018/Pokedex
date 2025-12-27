@@ -15,7 +15,10 @@ jobs:
 
         - name: "checking the list"
           run: "ls"
-                  
+
+        - name: "build the project"
+          run: "npm run build"
+
         - name: "upload production ready build files"
           uses: actions/upload-artifact@v6
           with:
