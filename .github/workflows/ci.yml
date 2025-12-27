@@ -16,6 +16,9 @@ jobs:
         - name: "checking the list"
           run: ls
 
+        - name: "install dependency"
+          run: npm i
+
         - name: "build the project"
           run: npm run build
 
