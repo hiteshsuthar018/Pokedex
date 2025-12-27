@@ -7,7 +7,7 @@ on:
 
 jobs:
     pokedex:
-      on: ubuntu-latest
+      runs-on: ubuntu-latest
       steps:
         - name: "setup node js"
           uses: actions/setup-node@v6
